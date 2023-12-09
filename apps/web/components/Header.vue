@@ -18,7 +18,7 @@ const links: LinkProps[] = [
     { label: 'header.links.3', href: '/dashboard' },
 ]
 
-const isOpen = useState<boolean>("isOpen", () => false)
+const isOpen = ref<boolean>(false);
 
 </script>
 
