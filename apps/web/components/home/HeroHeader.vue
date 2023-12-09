@@ -1,5 +1,5 @@
 <template>
-    <UContainer class="mt-36 text-center">
+    <UContainer class="mt-24 sm:mt-44 text-center">
         <UBadge class="rounded-full px-3" variant="subtle">
             BETA
         </UBadge>
