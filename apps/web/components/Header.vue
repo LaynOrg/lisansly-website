@@ -13,9 +13,9 @@ const isDark = computed({
 
 const links: LinkProps[] = [
     { label: 'header.links.0', href: '/' },
-    { label: 'header.links.1', href: '/tech-stack' },
-    { label: 'header.links.2', href: '/projects' },
-    { label: 'header.links.3', href: '/projects' },
+    { label: 'header.links.1', href: '/docs' },
+    { label: 'header.links.2', href: '/pricing' },
+    { label: 'header.links.3', href: '/dashboard' },
 ]
 
 const isOpen = useState<boolean>("isOpen", () => false)
