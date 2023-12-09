@@ -1,3 +1,4 @@
 <template>
     <HomeHeroHeader />
+    <HomeFeatures />
 </template>
