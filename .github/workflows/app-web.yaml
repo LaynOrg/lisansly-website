@@ -47,9 +47,10 @@ jobs:
       - name: Deploy To Dev Environment
         run: |
           cd apps/web
+          pnpm add -g wrangler
           wrangler pages deploy --project-name=lisansly-dev-website dist/
         env:
-          CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
   deploy-to-production:
     needs:
@@ -71,6 +72,7 @@ jobs:
       - name: Deploy To Production Environment
         run: |
           cd apps/web
+          pnpm add -g wrangler
           wrangler pages deploy --project-name=lisansly-prod-website dist/
         env:
-          CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
