@@ -1,11 +1,11 @@
 <script setup lang="ts">
 useSeoMeta({
-    title: 'Lisansly',
-})
+  title: "Lisansly",
+});
 </script>
 
 <template>
-    <NuxtLayout>
-        <NuxtPage />
-    </NuxtLayout>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>

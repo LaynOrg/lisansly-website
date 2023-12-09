@@ -1,0 +1,13 @@
+name: UI Package Triggers To Apps Workflows
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    paths:
+      - 'packages/ui/**'
+
+jobs:
+  call-app-web-workflow:
+    uses: ./.github/workflows/app-web.yaml
