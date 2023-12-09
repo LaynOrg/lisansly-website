@@ -1,7 +1,7 @@
 import { fontConfig } from "ui/configs/font";
 
 export default defineNuxtConfig({
-  modules: ["ui", "@nuxt/ui", "@nuxtjs/i18n", "@nuxtjs/google-fonts"],
+  modules: ["ui", "@nuxt/ui", "@nuxtjs/i18n", "@nuxtjs/google-fonts", "@nuxtjs/eslint-module"],
   css: ["ui/css/main.css"],
   googleFonts: fontConfig,
   runtimeConfig: {
