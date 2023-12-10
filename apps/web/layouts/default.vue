@@ -1,3 +1,9 @@
+<script setup lang="ts">
+useSeoMeta({
+  title: "Lisansly",
+});
+</script>
+
 <template>
   <div>
     <div class="fixed top-0 left-0 w-full z-10">
@@ -5,7 +11,7 @@
       <Header />
     </div>
     <main class="min-h-screen pt-28">
-      <slot />
+      <NuxtPage />
     </main>
   </div>
 </template>
