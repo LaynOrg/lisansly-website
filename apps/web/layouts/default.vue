@@ -1,8 +1,6 @@
-<script setup lang="ts"></script>
-
 <template>
   <div>
-    <div class="fixed top-0 left-0 w-full">
+    <div class="fixed top-0 left-0 w-full z-10">
       <NotificationBar />
       <Header />
     </div>
