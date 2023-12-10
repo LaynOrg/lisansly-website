@@ -6,7 +6,7 @@ export const nuxtUiConfig = {
       dynamic: true,
     },
     card:{
-      ring:"ring-4"
+      ring: "ring-2",
     }
   },
 };
