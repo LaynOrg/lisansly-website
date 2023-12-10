@@ -9,9 +9,6 @@ on:
     paths:
       - 'apps/web/**'
 
-permissions:
-  deployments: write
-
 jobs:
 
   lint:
