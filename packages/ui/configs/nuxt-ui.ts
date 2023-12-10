@@ -5,5 +5,8 @@ export const nuxtUiConfig = {
     icons: {
       dynamic: true,
     },
+    card:{
+      ring:"ring-4"
+    }
   },
 };
