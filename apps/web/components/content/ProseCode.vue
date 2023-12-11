@@ -9,6 +9,7 @@
   padding: 0.7rem;
   counter-reset: lines;
   text-align: left;
+  overflow-x: auto;
 }
 :slotted(.line::before) {
   counter-increment: lines;

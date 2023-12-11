@@ -25,12 +25,16 @@ const getAbout = (group: any) => {
 </script>
 
 <template>
-  <UContainer class="mt-32 md:mt-56 mb-96 grid gap-40 md:gap-48">
+  <UContainer class="flex flex-col mt-32 md:mt-56 mb-96 gap-40 md:gap-48">
     <div
       v-for="(group, i) in groups"
       :key="i"
-      class="text-center lg:text-left grid lg:flex flex-1 gap-32"
-      :class="{ 'flex-row-reverse lg:text-right': i % 2 === 0 }"
+      :class="{
+        'text-center lg:text-left gap-20 md:gap-32 flex flex-col': true,
+        'lg:text-right': i % 2 === 0,
+        'lg:flex-row-reverse': i % 2 === 0,
+        'lg:flex-row': i % 2 === 1,
+      }"
     >
       <ContentRendererMarkdown
         :value="getAbout(group)"
