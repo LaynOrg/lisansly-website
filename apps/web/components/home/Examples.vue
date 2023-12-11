@@ -25,7 +25,7 @@ const getAbout = (group: any) => {
 </script>
 
 <template>
-  <UContainer class="flex flex-col mt-32 md:mt-56 mb-96 gap-40 md:gap-48">
+  <UContainer class="flex flex-col my-32 md:my-56 gap-40 md:gap-48">
     <div
       v-for="(group, i) in groups"
       :key="i"
