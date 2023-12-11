@@ -34,7 +34,7 @@ const options: LicensingOptionProps[] = [
       >
         {{ $t("home.licensingOptions.title") }}
       </h1>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20">
         <UCard v-for="{ description, href, icon, title } in options" :ui="ui">
           <template #header>
             <div class="flex flex-wrap items-center gap-5">
