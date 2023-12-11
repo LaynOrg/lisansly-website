@@ -4,5 +4,6 @@
     <HomeFeatures />
     <HomeExamples />
     <HomeLicensingOptions />
+    <HomeDashboard />
   </div>
 </template>

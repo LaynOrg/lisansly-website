@@ -54,6 +54,10 @@ export default defineI18nConfig(() => ({
           ],
           moreInfo: "Daha fazla bilgi",
         },
+        dashboard: {
+          title: "Hazırsanız bir proje oluşturarak başlayalım.",
+          button: "Panele Git",
+        },
       },
     },
     en: {
@@ -107,6 +111,10 @@ export default defineI18nConfig(() => ({
             },
           ],
           moreInfo: "More information",
+        },
+        dashboard: {
+          title: "If you are ready, let's start by creating a project.",
+          button: "Go to Dashboard",
         },
       },
     },
