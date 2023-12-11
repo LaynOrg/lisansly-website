@@ -37,6 +37,23 @@ export default defineI18nConfig(() => ({
             },
           ],
         },
+        licensingOptions: {
+          title:
+            "Uygulamanıza entegre edeceğiniz lisanslama seçeneğini belirleyin.",
+          options: [
+            {
+              title: "Bulut tabanlı lisanslama",
+              description:
+                "Bulut tabanlı lisanslama seçeneği ile kullanıcılarınızın lisanslarını yönetebilirsiniz.",
+            },
+            {
+              title: "Hesap tabanlı lisanslama",
+              description:
+                "Hesap tabanlı lisanslama seçeneği ile kullanıcılarınızın lisanslarını yönetebilirsiniz.",
+            },
+          ],
+          moreInfo: "Daha fazla bilgi",
+        },
       },
     },
     en: {
@@ -73,6 +90,23 @@ export default defineI18nConfig(() => ({
                 "You can use it for free or choose a paid plan. We offer a free plan with limited features for you to try our project. Paid plans offer more features and advantages.",
             },
           ],
+        },
+        licensingOptions: {
+          title:
+            "Select the licensing option you will integrate into your application.",
+          options: [
+            {
+              title: "Cloud-based licensing",
+              description:
+                "You can manage your users licenses with the cloud-based licensing option.",
+            },
+            {
+              title: "Account-based licensing",
+              description:
+                "You can manage your users licenses with the account-based licensing option.",
+            },
+          ],
+          moreInfo: "More information",
         },
       },
     },

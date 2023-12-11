@@ -3,3 +3,10 @@ export type FeatureProps = {
   description: string;
   icon: string;
 };
+
+export type LicensingOptionProps = {
+  title: string;
+  description: string;
+  icon: string;
+  href: string;
+};

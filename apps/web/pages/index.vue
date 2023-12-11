@@ -3,5 +3,6 @@
     <HomeHeroHeader />
     <HomeFeatures />
     <HomeExamples />
+    <HomeLicensingOptions />
   </div>
 </template>
