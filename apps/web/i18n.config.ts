@@ -58,6 +58,11 @@ export default defineI18nConfig(() => ({
           title: "Hazırsanız bir proje oluşturarak başlayalım.",
           button: "Panele Git",
         },
+        openSourceAndCommunity: {
+          title: "Açık Kaynak ve Topluluk",
+          description:
+            "Lisansly açık kaynak kodlu bir projedir, kaynak kodunu github üzerinden bulabilir ve projeye katkıda bulunabilirsiniz. Sorularınız varsa discord veya twitter üzerinden sorabilirsiniz.",
+        },
       },
     },
     en: {
@@ -115,6 +120,11 @@ export default defineI18nConfig(() => ({
         dashboard: {
           title: "If you are ready, let's start by creating a project.",
           button: "Go to Dashboard",
+        },
+        openSourceAndCommunity: {
+          title: "Open Source and Community",
+          description:
+            "Lisansly is a open source project, you can find the source code on github and contribute to the project. If you have any questions, you can ask them on discord or twitter.",
         },
       },
     },

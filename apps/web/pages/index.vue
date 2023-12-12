@@ -5,5 +5,6 @@
     <HomeExamples />
     <HomeLicensingOptions />
     <HomeDashboard />
+    <HomeOpenSourceAndCommunity />
   </div>
 </template>

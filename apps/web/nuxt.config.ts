@@ -22,6 +22,9 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       logoUrl: process.env.LOGO_URL,
+      gitHubUrl: process.env.GITHUB_URL,
+      twitterUrl: process.env.TWITTER_URL,
+      discordUrl: process.env.DISCORD_URL,
     },
   },
 });
