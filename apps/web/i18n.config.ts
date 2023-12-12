@@ -64,6 +64,10 @@ export default defineI18nConfig(() => ({
             "Lisansly açık kaynak kodlu bir projedir, kaynak kodunu github üzerinden bulabilir ve projeye katkıda bulunabilirsiniz. Sorularınız varsa discord veya twitter üzerinden sorabilirsiniz.",
         },
       },
+      footer: {
+        author: "Layn tarafından geliştirildi.",
+        tooltipText: "Merhaba! Ben Bubi.",
+      },
     },
     en: {
       header: {
@@ -126,6 +130,10 @@ export default defineI18nConfig(() => ({
           description:
             "Lisansly is a open source project, you can find the source code on github and contribute to the project. If you have any questions, you can ask them on discord or twitter.",
         },
+      },
+      footer: {
+        author: "Developed by Layn.",
+        tooltipText: "Hello! I'm Bubi.",
       },
     },
   },

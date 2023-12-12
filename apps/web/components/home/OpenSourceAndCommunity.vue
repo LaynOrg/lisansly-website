@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const config = useRuntimeConfig();
+const { socials } = useLinksStore();
 </script>
 
 <template>
@@ -14,28 +14,16 @@ const config = useRuntimeConfig();
     </p>
     <div class="flex flex-wrap justify-center gap-5">
       <UButton
-        label="Github"
-        icon="i-simple-icons-github"
-        color="black"
+        v-for="social in socials"
+        :label="social.label"
+        :icon="social.icon"
+        :color="social.label !== 'Discord' && 'black'"
         size="xl"
-        :to="config.public.gitHubUrl"
+        :to="social.href"
         target="_blank"
-      />
-      <UButton
-        label="Twitter"
-        icon="i-simple-icons-x"
-        color="black"
-        size="xl"
-        :to="config.public.twitterUrl"
-        target="_blank"
-      />
-      <UButton
-        label="Discord"
-        icon="i-simple-icons-discord"
-        class="bg-[#7289da] dark:text-white"
-        size="xl"
-        :to="config.public.discordUrl"
-        target="_blank"
+        :class="{
+          'bg-[#7289da] dark:text-white': social.label === 'Discord',
+        }"
       />
     </div>
   </UContainer>

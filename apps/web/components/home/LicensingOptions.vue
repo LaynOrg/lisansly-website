@@ -10,13 +10,13 @@ const ui = {
 
 const options: LicensingOptionProps[] = [
   {
-    title: "home.licensingOptions.options.0.title",
+    label: "home.licensingOptions.options.0.title",
     description: "home.licensingOptions.options.0.description",
     icon: "i-tabler-cloud-computing",
     href: "/",
   },
   {
-    title: "home.licensingOptions.options.1.title",
+    label: "home.licensingOptions.options.1.title",
     description: "home.licensingOptions.options.1.description",
     icon: "i-mdi-shield-account",
     href: "/",
@@ -35,7 +35,7 @@ const options: LicensingOptionProps[] = [
         {{ $t("home.licensingOptions.title") }}
       </h1>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20">
-        <UCard v-for="{ description, href, icon, title } in options" :ui="ui">
+        <UCard v-for="{ description, href, icon, label } in options" :ui="ui">
           <template #header>
             <div class="flex flex-wrap items-center gap-5">
               <UIcon
@@ -43,7 +43,7 @@ const options: LicensingOptionProps[] = [
                 class="text-4xl text-blue-400 dark:text-blue-500"
               />
               <h1 class="text-2xl font-bold">
-                {{ $t(title) }}
+                {{ $t(label) }}
               </h1>
             </div>
           </template>

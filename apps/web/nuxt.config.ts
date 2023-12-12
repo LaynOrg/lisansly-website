@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "@nuxtjs/google-fonts",
     "@nuxtjs/eslint-module",
     "@nuxt/content",
+    "@pinia/nuxt",
   ],
   content: {
     highlight: {
@@ -25,6 +26,8 @@ export default defineNuxtConfig({
       gitHubUrl: process.env.GITHUB_URL,
       twitterUrl: process.env.TWITTER_URL,
       discordUrl: process.env.DISCORD_URL,
+      laynUrl: process.env.LAYN_URL,
+      laynLogoUrl: process.env.LAYN_LOGO_URL,
     },
   },
 });
