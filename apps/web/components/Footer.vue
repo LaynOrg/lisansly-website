@@ -6,7 +6,7 @@ const { navigations, socials } = useLinksStore();
 <template>
   <UContainer
     as="footer"
-    class="rounded-t-3xl border-2 border-b-0 border-gray-200 dark:border-gray-800 py-5 bg-gradient-to-t from-gray-300 via-gray-100 to-white dark:from-gray-950 dark:via-gray-900 dark:to-gray-800"
+    class="mt-10 rounded-t-3xl border-2 border-b-0 border-gray-200 dark:border-gray-800 py-5 bg-gradient-to-t from-gray-300 via-gray-100 to-white dark:from-gray-950 dark:via-gray-900 dark:to-gray-800"
   >
     <div class="flex items-center justify-center sm:justify-between">
       <div class="hidden sm:flex gap-5">
