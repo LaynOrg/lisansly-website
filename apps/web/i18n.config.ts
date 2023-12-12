@@ -68,6 +68,41 @@ export default defineI18nConfig(() => ({
         author: "Layn tarafından geliştirildi.",
         tooltipText: "Merhaba! Ben Bubi.",
       },
+      pricing: {
+        title: "Fiyatlandırma",
+        description: "Size uygun olan planı seçin.",
+        button: "Satın Al",
+        mostPopular: "En Popüler",
+        plans: [
+          {
+            name: "Ücretsiz",
+            description: "Ücretsiz plan",
+            list: [
+              "Bla bla bla bla bla",
+              "Bla bla bla bla",
+              "Bla bla",
+              "Bla bla bla",
+            ],
+          },
+          {
+            name: "Örnek Plan",
+            description: "Örnek plan",
+            list: ["Bla bla bla bla bla", "Bla bla bla bla"],
+          },
+          {
+            name: "Örnek Plan 2",
+            description: "Ücretsiz plan 2",
+            list: [
+              "Bla bla bla bla bla",
+              "Bla bla bla bla bla",
+              "Bla bla bla bla",
+              "Bla bla bla bla",
+              "Bla bla",
+              "Bla bla bla",
+            ],
+          },
+        ],
+      },
     },
     en: {
       header: {
@@ -134,6 +169,41 @@ export default defineI18nConfig(() => ({
       footer: {
         author: "Developed by Layn.",
         tooltipText: "Hello! I'm Bubi.",
+      },
+      pricing: {
+        title: "Pricing",
+        description: "Choose the plan that suits you.",
+        button: "Buy Now",
+        mostPopular: "Most Popular",
+        plans: [
+          {
+            name: "Free",
+            description: "Free plan",
+            list: [
+              "Bla bla bla bla bla",
+              "Bla bla bla bla",
+              "Bla bla",
+              "Bla bla bla",
+            ],
+          },
+          {
+            name: "Example Plan",
+            description: "Example plan",
+            list: ["Bla bla bla bla bla", "Bla bla bla bla"],
+          },
+          {
+            name: "Example Plan 2",
+            description: "Free plan 2",
+            list: [
+              "Bla bla bla bla bla",
+              "Bla bla bla bla bla",
+              "Bla bla bla bla",
+              "Bla bla bla bla",
+              "Bla bla",
+              "Bla bla bla",
+            ],
+          },
+        ],
       },
     },
   },

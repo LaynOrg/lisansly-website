@@ -14,3 +14,11 @@ export type LicensingOptionProps = LinkProps & {
 export type SocialProps = LinkProps & {
   icon: string;
 };
+
+export type PlanProps = {
+  name: string;
+  description: string;
+  list: string[];
+  price: number;
+  mostPopular?: boolean;
+};
