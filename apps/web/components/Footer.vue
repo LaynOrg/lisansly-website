@@ -37,7 +37,7 @@ const { navigations, socials } = useLinksStore();
       <LuLogo />
       <div class="flex items-center gap-2">
         <UTooltip :text="$t('footer.tooltipText')">
-          <img :src="config.public.laynLogoUrl" class="h-7" />
+          <img :src="config.public.laynLogoUrl" class="h-7" alt="layn-logo" />
         </UTooltip>
         <a class="text-xs" :href="config.public.laynUrl" target="_blank">
           {{ $t("footer.author") }}
