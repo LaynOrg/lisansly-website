@@ -1,5 +1,5 @@
 <template>
-  <UContainer class="mb-96">
+  <UContainer class="mb-64">
     <UCard class="relative shadow-xl">
       <div class="absolute left-0 top-0 backdrop-blur-sm w-full h-full z-[1]" />
       <USkeleton class="h-24 w-full mb-5" />
