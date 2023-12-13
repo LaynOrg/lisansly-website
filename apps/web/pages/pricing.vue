@@ -45,6 +45,7 @@ const plans: PlanProps[] = [
   },
 ];
 </script>
+
 <template>
   <UContainer class="mt-0">
     <h1

@@ -4,7 +4,7 @@ export default defineI18nConfig(() => ({
   messages: {
     tr: {
       header: {
-        links: ["Anasayfa", "Dokümantasyon", "Fiyatlandırma", "Panel"],
+        links: ["Anasayfa", "Dokümantasyon", "Panel", "Fiyatlandırma"],
       },
       notificationBarLabel: "You can change the language of the site.",
       home: {
@@ -106,7 +106,7 @@ export default defineI18nConfig(() => ({
     },
     en: {
       header: {
-        links: ["Home", "Documantation", "Pricing", "Dashboard"],
+        links: ["Home", "Documantation", "Dashboard", "Pricing"],
       },
       notificationBarLabel: "Sitenin dilini değiştirebilirsiniz.",
       home: {

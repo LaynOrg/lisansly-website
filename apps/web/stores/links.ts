@@ -10,8 +10,7 @@ export const useLinksStore = defineStore({
       navigations: [
         { label: "header.links.0", href: "/" },
         { label: "header.links.1", href: "/docs" },
-        { label: "header.links.2", href: "/pricing" },
-        { label: "header.links.3", href: "/dashboard" },
+        { label: "header.links.2", href: "/dashboard" },
       ] as LinkProps[],
       socials: [
         {
@@ -32,5 +31,18 @@ export const useLinksStore = defineStore({
         },
       ] as SocialProps[],
     };
+  },
+  actions: {
+    addNavigation(link: LinkProps) {
+      if (!this.navigations.some((item) => item.href === link.href)) {
+        this.navigations.push(link);
+      }
+    },
+    removeNavigation(href: string) {
+      const index = this.navigations.findIndex((item) => item.href === href);
+      if (index > -1) {
+        this.navigations.splice(index, 1);
+      }
+    },
   },
 });

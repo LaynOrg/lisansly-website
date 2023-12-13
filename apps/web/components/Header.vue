@@ -29,17 +29,19 @@ defineShortcuts({
   >
     <UContainer class="flex items-center py-4 justify-between">
       <LuLogo />
-      <div class="gap-3 hidden sm:flex">
-        <UButton
-          v-for="link in navigations"
-          :key="link.href"
-          :to="link.href"
-          :aria-label="link.label"
-          :label="$t(link.label)"
-          color="gray"
-          variant="ghost"
-        />
-      </div>
+      <ClientOnly>
+        <div class="gap-3 hidden sm:flex">
+          <UButton
+            v-for="link in navigations"
+            :key="link.href"
+            :to="link.href"
+            :aria-label="link.label"
+            :label="$t(link.label)"
+            color="gray"
+            variant="ghost"
+          />
+        </div>
+      </ClientOnly>
       <div class="flex gap-3">
         <UButton icon="i-heroicons-user-circle-solid" color="gray" />
         <ClientOnly>
@@ -92,18 +94,20 @@ defineShortcuts({
           @click="isOpen = false"
         />
       </template>
-      <div class="grid gap-3">
-        <UButton
-          v-for="link in navigations"
-          :key="link.href"
-          :to="link.href"
-          :aria-label="link.label"
-          :label="$t(link.label)"
-          color="gray"
-          variant="ghost"
-          size="lg"
-        />
-      </div>
+      <ClientOnly>
+        <div class="grid gap-3">
+          <UButton
+            v-for="link in navigations"
+            :key="link.href"
+            :to="link.href"
+            :aria-label="link.label"
+            :label="$t(link.label)"
+            color="gray"
+            variant="ghost"
+            size="lg"
+          />
+        </div>
+      </ClientOnly>
     </UCard>
   </USlideover>
 </template>
