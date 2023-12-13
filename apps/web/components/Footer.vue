@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const config = useRuntimeConfig();
 const { navigations, socials } = useLinksStore();
+const config = useRuntimeConfig();
 </script>
 
 <template>
@@ -9,23 +9,25 @@ const { navigations, socials } = useLinksStore();
     class="mt-10 rounded-t-3xl border-2 border-b-0 border-gray-200 dark:border-gray-800 py-5 bg-gradient-to-t from-gray-300 via-gray-100 to-white dark:from-gray-950 dark:via-gray-900 dark:to-gray-800"
   >
     <div class="flex items-center justify-center sm:justify-between">
-      <div class="hidden sm:flex gap-5">
-        <ULink
-          v-for="link in navigations"
-          :to="link.href"
-          class="text-sm"
-          active-class="text-primary"
-          inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
-        >
-          {{ $t(link.label) }}
-        </ULink>
-      </div>
+      <ClientOnly>
+        <div class="hidden sm:flex gap-5">
+          <ULink
+            v-for="{ href, label } in navigations"
+            :to="href"
+            class="text-sm"
+            active-class="text-primary"
+            inactive-class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+          >
+            {{ $t(label) }}
+          </ULink>
+        </div>
+      </ClientOnly>
       <div class="flex gap-3">
         <UButton
-          v-for="social in socials"
-          :to="social.href"
+          v-for="{ href, icon, label } in socials"
+          :to="href"
           target="_blank"
-          :icon="social.icon"
+          :icon="icon"
           variant="link"
           color="gray"
         />

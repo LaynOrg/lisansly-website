@@ -40,12 +40,12 @@ watch(copied, () => {
     :ui="{ body: { padding: '', base: 'flex gap-2' } }"
   >
     <UButton
-      v-for="(tab, i) in tabs"
+      v-for="({ filename, language }, i) in tabs"
       :variant="activeTabIndex === i ? 'solid' : 'ghost'"
-      :icon="icons.get(tab.language)"
+      :icon="icons.get(language)"
       :ui="{ icon: { size: 'text-lg' } }"
       @click="activeTabIndex = i"
-      :label="tab.filename"
+      :label="filename"
       color="gray"
       :key="i"
     />

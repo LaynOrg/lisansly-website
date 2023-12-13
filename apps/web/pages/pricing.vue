@@ -7,7 +7,6 @@ const ui = (mostPopular: boolean) => ({
   ring: `${mostPopular ? "ring-blue-500" : "ring-gray-300"} dark:${
     mostPopular ? "ring-blue-500" : "ring-gray-800"
   } ${mostPopular ? "ring-4" : "ring-2"}`,
-  background: "bg-gradient-to-b from-transparent to-gray-200 dark:to-black",
   rounded: "rounded-2xl",
   divide: "divide-gray-300",
 });
@@ -48,12 +47,10 @@ const plans: PlanProps[] = [
 
 <template>
   <UContainer class="mt-0">
-    <h1
-      class="py-2 text-center text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-800 dark:from-gray-300 dark:to-gray-500 mb-3"
-    >
+    <h1 class="gradient-heading text-center text-4xl sm:text-5xl">
       {{ $t("pricing.title") }}
     </h1>
-    <p class="text-center text-xl sm:text-2xl text-gray-500 mb-16">
+    <p class="text-center text-xl sm:text-2xl mb-16">
       {{ $t("pricing.description") }}
     </p>
     <div
@@ -63,6 +60,7 @@ const plans: PlanProps[] = [
         v-for="{ description, list, name, mostPopular, price } in plans"
         :key="name"
         :ui="ui(mostPopular ? true : false)"
+        class="gradient-card"
       >
         <UBadge
           v-show="mostPopular"
@@ -71,15 +69,13 @@ const plans: PlanProps[] = [
         >
           {{ $t("pricing.mostPopular") }}
         </UBadge>
-        <h1
-          class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-800 dark:from-gray-300 dark:to-gray-500"
-        >
+        <h1 class="gradient-heading text-3xl">
           {{ $t(name) }}
         </h1>
-        <span class="mb-4 mt-1 font-extrabold text-xl">
+        <span class="mb-4 font-extrabold text-xl">
           {{ price + "$" }}
         </span>
-        <p class="text-gray-500">
+        <p>
           {{ $t(description) }}
         </p>
         <ul class="list-disc ml-5 mt-10 text-sm">

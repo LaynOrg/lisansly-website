@@ -4,6 +4,6 @@ export default defineNuxtModule({
   setup() {
     const { resolve } = createResolver(import.meta.url)
     addPlugin(resolve('plugins/firebase.client.ts'))
-    addImportsDir(resolve('composables'));
+    addImportsDir(resolve('stores'));
   },
 })

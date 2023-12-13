@@ -14,13 +14,11 @@ let groups = Object.values(
 );
 
 const getCode = (group: any) => {
-  return group.filter((example: any) => example._path.includes("code"))[0];
+  return group.find((example: any) => example._path.includes("code"));
 };
 
 const getAbout = (group: any) => {
-  return group.filter((example: any) =>
-    example._path.includes(locale.value),
-  )[0];
+  return group.find((example: any) => example._path.includes(locale.value));
 };
 </script>
 
@@ -29,8 +27,8 @@ const getAbout = (group: any) => {
     <div
       v-for="(group, i) in groups"
       :key="i"
+      class="text-center lg:text-left gap-20 md:gap-32 flex flex-col"
       :class="{
-        'text-center lg:text-left gap-20 md:gap-32 flex flex-col': true,
         'lg:text-right': i % 2 === 0,
         'lg:flex-row-reverse': i % 2 === 0,
         'lg:flex-row': i % 2 === 1,
@@ -38,7 +36,7 @@ const getAbout = (group: any) => {
     >
       <ContentRendererMarkdown
         :value="getAbout(group)"
-        class="[&>h1]:text-5xl [&>h1]:mb-6 [&>h1]:text-blue-400 dark:[&>h1]:text-blue-500 [&>p]:text-gray-600 dark:[&>p]:text-gray-400 lg:w-1/2 [&>p]: text-lg"
+        class="[&>h1]:text-5xl [&>h1]:mb-6 [&>h1]:text-blue-400 dark:[&>h1]:text-blue-500 lg:w-1/2 [&>p]: text-lg"
       />
       <ContentRendererMarkdown :value="getCode(group)" class="lg:w-1/2" />
     </div>

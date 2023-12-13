@@ -10,9 +10,9 @@ const { locale } = useI18n();
   >
     <UContainer class="flex justify-between items-center">
       <div class="flex items-center gap-3">
-        <p class="text-sm hidden sm:block">
+        <span class="text-sm hidden sm:block">
           {{ $t("notificationBarLabel") }}
-        </p>
+        </span>
         <USelectMenu
           v-model="locale"
           :options="['tr', 'en']"
@@ -21,9 +21,9 @@ const { locale } = useI18n();
           :ui-menu="{ option: { size: 'text-xs' } }"
         >
           <template #label>
-            <p class="uppercase">
+            <span class="uppercase">
               {{ locale }}
-            </p>
+            </span>
           </template>
         </USelectMenu>
       </div>

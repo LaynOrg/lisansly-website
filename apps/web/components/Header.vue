@@ -1,8 +1,8 @@
 <script setup lang="ts">
+const { navigations } = useLinksStore();
 const { metaSymbol } = useShortcuts();
 const isOpen = ref<boolean>(false);
 const colorMode = useColorMode();
-const { navigations } = useLinksStore();
 
 const isDark = computed({
   get() {
@@ -32,11 +32,11 @@ defineShortcuts({
       <ClientOnly>
         <div class="gap-3 hidden sm:flex">
           <UButton
-            v-for="link in navigations"
-            :key="link.href"
-            :to="link.href"
-            :aria-label="link.label"
-            :label="$t(link.label)"
+            v-for="{ href, label } in navigations"
+            :key="href"
+            :to="href"
+            :aria-label="label"
+            :label="$t(label)"
             color="gray"
             variant="ghost"
           />
@@ -97,11 +97,11 @@ defineShortcuts({
       <ClientOnly>
         <div class="grid gap-3">
           <UButton
-            v-for="link in navigations"
-            :key="link.href"
-            :to="link.href"
-            :aria-label="link.label"
-            :label="$t(link.label)"
+            v-for="{ href, label } in navigations"
+            :key="href"
+            :to="href"
+            :aria-label="label"
+            :label="$t(label)"
             color="gray"
             variant="ghost"
             size="lg"

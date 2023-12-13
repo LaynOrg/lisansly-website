@@ -1,12 +1,12 @@
 <template>
   <UContainer class="mt-24 sm:mt-44 text-center">
-    <UBadge class="rounded-full px-3" variant="subtle"> BETA </UBadge>
+    <UBadge class="rounded-full px-3" variant="subtle">BETA</UBadge>
     <h1
-      class="max-w-4xl m-auto text-4xl sm:text-6xl py-2 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-800 dark:from-gray-300 dark:to-gray-500 mb-2"
+      class="gradient-heading max-w-4xl m-auto text-4xl sm:text-6xl py-2 font-extrabold mb-2"
     >
       {{ $t("home.heroHeader.title") }}
     </h1>
-    <p class="text-xl sm:text-2xl text-gray-500 max-w-xl m-auto">
+    <p class="text-xl sm:text-2xl max-w-xl m-auto">
       {{ $t("home.heroHeader.description") }}
     </p>
     <div class="mt-10 flex flex-wrap gap-5 justify-center">

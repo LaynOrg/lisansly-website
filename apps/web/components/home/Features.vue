@@ -3,8 +3,7 @@ import type { FeatureProps } from "~/types";
 
 const ui = {
   base: "px-3 py-2 hover:bg-[#dbdee3] dark:hover:bg-gray-800 transition-all duration-500",
-  ring: "ring-gray-300 dark:ring-gray-800 hover:ring-blue-400 dark:hover:ring-blue-500",
-  background: "bg-gradient-to-b from-transparent to-gray-200 dark:to-black",
+  ring: "hover:ring-blue-400 dark:hover:ring-blue-500",
   rounded: "rounded-2xl",
 };
 
@@ -33,26 +32,31 @@ const features: FeatureProps[] = [
   >
     <UContainer>
       <h1
-        class="text-center text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-800 dark:from-gray-300 dark:to-gray-500 mb-3"
+        class="gradient-heading text-center text-4xl sm:text-5xl font-extrabold mb-3"
       >
         {{ $t("home.features.title") }}
       </h1>
-      <p class="text-center text-xl sm:text-2xl text-gray-500 mb-16">
+      <p class="text-center text-xl sm:text-2xl mb-16">
         {{ $t("home.features.description") }}
       </p>
       <div
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 lg:gap-10"
       >
-        <UCard v-for="feature in features" :key="feature.title" :ui="ui">
+        <UCard
+          v-for="{ description, icon, title } in features"
+          :key="title"
+          :ui="ui"
+          class="gradient-card"
+        >
           <UIcon
-            :name="feature.icon"
+            :name="icon"
             class="text-5xl text-blue-400 dark:text-blue-500"
           />
           <h1 class="mt-5 mb-2 text-2xl font-bold">
-            {{ $t(feature.title) }}
+            {{ $t(title) }}
           </h1>
-          <p class="text-gray-500 dark:text-gray-400">
-            {{ $t(feature.description) }}
+          <p>
+            {{ $t(description) }}
           </p>
         </UCard>
       </div>
