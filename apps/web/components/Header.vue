@@ -1,26 +1,6 @@
 <script setup lang="ts">
 const { navigations } = useLinksStore();
-const { metaSymbol } = useShortcuts();
 const isOpen = ref<boolean>(false);
-const colorMode = useColorMode();
-
-const isDark = computed({
-  get() {
-    return colorMode.value === "dark";
-  },
-  set() {
-    colorMode.preference = colorMode.value === "dark" ? "light" : "dark";
-  },
-});
-
-defineShortcuts({
-  meta_k: {
-    usingInput: true,
-    handler: () => {
-      isDark.value = !isDark.value;
-    },
-  },
-});
 </script>
 
 <template>
@@ -44,28 +24,7 @@ defineShortcuts({
       </ClientOnly>
       <div class="flex gap-3">
         <UButton icon="i-heroicons-user-circle-solid" color="gray" />
-        <ClientOnly>
-          <UTooltip :ui="{ base: 'pb-6 px-1 gap-1 flex' }">
-            <UButton
-              :icon="
-                isDark
-                  ? 'i-heroicons-moon-20-solid'
-                  : 'i-heroicons-sun-20-solid'
-              "
-              color="gray"
-              variant="ghost"
-              aria-label="Theme"
-              @click="isDark = !isDark"
-            />
-            <template #text>
-              <UKbd :value="metaSymbol" />
-              <UKbd value="K" />
-            </template>
-          </UTooltip>
-          <template #fallback>
-            <div class="w-8 h-8" />
-          </template>
-        </ClientOnly>
+        <LuToggleTheme />
         <UButton
           class="sm:hidden"
           icon="i-heroicons-bars-3-20-solid"
