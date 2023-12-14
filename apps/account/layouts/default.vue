@@ -5,5 +5,8 @@ useSeoMeta({
 </script>
 
 <template>
+  <UContainer :ui="{ constrained: 'max-w-6xl' }">
+    <Header />
     <NuxtPage />
+  </UContainer>
 </template>
