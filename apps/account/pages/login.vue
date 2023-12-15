@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type { FormError, FormSubmitEvent } from "#ui/types";
-import RegisterValidation from "~/validations/register";
+import LoginValidation from "~/validations/login";
 import ResponseError from "auth/errors/response";
 
-const validation = new RegisterValidation();
-const { register } = useAuthStore();
+const validation = new LoginValidation();
+const { login } = useAuthStore();
 const loading = ref<boolean>(false);
 const toast = useToast();
 const { t } = useI18n();
@@ -12,8 +12,6 @@ const { t } = useI18n();
 const state = reactive({
   email: "",
   password: "",
-  name: "",
-  confirmPassword: "",
 });
 
 const validate = (values: typeof state): FormError[] => {
@@ -26,8 +24,7 @@ const validate = (values: typeof state): FormError[] => {
 
 async function onSubmit(event: FormSubmitEvent<any>) {
   loading.value = true;
-  const res = await register({
-    name: event.data.name,
+  const res = await login({
     email: event.data.email,
     password: event.data.password,
   });
@@ -44,21 +41,21 @@ async function onSubmit(event: FormSubmitEvent<any>) {
 <template>
   <UContainer :ui="{ constrained: 'max-w-xl mt-10' }">
     <h1 class="gradient-heading text-4xl">
-      {{ t("register.title") }}
+      {{ t("login.title") }}
     </h1>
     <p class="mb-7">
-      {{ $t("register.description") }}
+      {{ $t("login.description") }}
     </p>
     <div class="space-y-4">
       <UButton
-        :label="$t('register.providers.google')"
+        :label="$t('login.providers.google')"
         color="red"
         block
         size="xl"
         icon="i-simple-icons-google"
       />
       <UButton
-        :label="$t('register.providers.google')"
+        :label="$t('login.providers.google')"
         color="black"
         block
         size="xl"
@@ -76,9 +73,6 @@ async function onSubmit(event: FormSubmitEvent<any>) {
       class="space-y-3"
       @submit="onSubmit"
     >
-      <UFormGroup :label="t('name.label')" required size="xl" name="name">
-        <UInput :placeholder="t('name.placeholder')" v-model="state.name" />
-      </UFormGroup>
       <UFormGroup :label="t('email.label')" required size="xl" name="email">
         <UInput :placeholder="t('email.placeholder')" v-model="state.email" />
       </UFormGroup>
@@ -94,21 +88,9 @@ async function onSubmit(event: FormSubmitEvent<any>) {
           v-model="state.password"
         />
       </UFormGroup>
-      <UFormGroup
-        :label="t('confirmPassword.label')"
-        required
-        size="xl"
-        name="confirmPassword"
-      >
-        <UInput
-          type="password"
-          :placeholder="t('confirmPassword.placeholder')"
-          v-model="state.confirmPassword"
-        />
-      </UFormGroup>
       <UButton
         type="submit"
-        :label="t('register.button')"
+        :label="t('login.button')"
         block
         size="xl"
         :loading="loading"

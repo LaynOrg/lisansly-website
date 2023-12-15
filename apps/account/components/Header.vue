@@ -41,7 +41,12 @@ const { isAuthenticated, session } = storeToRefs(authStore);
     </div>
     <div class="flex gap-3 items-center">
       <div class="hidden sm:flex gap-3" v-if="!isAuthenticated">
-        <UButton :label="$t('header.buttons.login')" color="black" size="xs" />
+        <UButton
+          :label="$t('header.buttons.login')"
+          color="black"
+          size="xs"
+          to="/login"
+        />
         <UButton
           :label="$t('header.buttons.register')"
           color="gray"

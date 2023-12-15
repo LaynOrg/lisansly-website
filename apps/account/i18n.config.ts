@@ -44,6 +44,16 @@ export default defineI18nConfig(() => ({
         button: "Kayıt Ol",
         409: "Bu e-posta adresi zaten kullanılıyor",
       },
+      login: {
+        title: "Lisansly'e tekrardan hoşgeldiniz!",
+        description: "Kaldığınız yerden devam etmek için hesabınıza girin.",
+        providers: {
+          google: "Google ile giriş yap",
+          gitHub: "GitHub ile giriş yap",
+        },
+        button: "Giriş Yap",
+        401: "Yanlış e-posta adresi veya şifre",
+      },
       500: "Bir şeyler ters gitti. Lütfen daha sonra tekrar deneyin.",
     },
     en: {
@@ -79,7 +89,7 @@ export default defineI18nConfig(() => ({
       },
       or: "or",
       register: {
-        title: "Welcome to Licensly!",
+        title: "Welcome to Lisansly!",
         description: "Create your account to get started.",
         providers: {
           google: "Register with Google",
@@ -87,6 +97,16 @@ export default defineI18nConfig(() => ({
         },
         button: "Register",
         409: "This email address is already in use",
+      },
+      login: {
+        title: "Welcome back to Lisansly!",
+        description: "Login to continue where you left off.",
+        providers: {
+          google: "Login with Google",
+          gitHub: "Login with GitHub",
+        },
+        button: "Login",
+        401: "Incorrect email address or password",
       },
       500: "Something went wrong. Please try again later.",
     },
