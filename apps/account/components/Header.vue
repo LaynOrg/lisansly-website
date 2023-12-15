@@ -48,6 +48,7 @@ const isOpen = ref<boolean>(false);
         color="gray"
         size="xs"
         class="hidden sm:flex"
+        to="/register"
       />
       <LuToggleTheme />
       <UButton

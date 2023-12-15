@@ -9,4 +9,5 @@ useSeoMeta({
     <Header />
     <NuxtPage />
   </UContainer>
+  <UNotifications />
 </template>
