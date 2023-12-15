@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { LinkProps } from "ui/types";
+import { storeToRefs } from "pinia";
 
 const navigations: LinkProps[] = [
   {
@@ -17,6 +18,8 @@ const navigations: LinkProps[] = [
 ];
 
 const isOpen = ref<boolean>(false);
+const authStore = useAuthStore();
+const { isAuthenticated, session } = storeToRefs(authStore);
 </script>
 
 <template>
@@ -37,18 +40,22 @@ const isOpen = ref<boolean>(false);
       </UButton>
     </div>
     <div class="flex gap-3 items-center">
+      <div class="hidden sm:flex gap-3" v-if="!isAuthenticated">
+        <UButton :label="$t('header.buttons.login')" color="black" size="xs" />
+        <UButton
+          :label="$t('header.buttons.register')"
+          color="gray"
+          size="xs"
+          to="/register"
+        />
+      </div>
       <UButton
-        :label="$t('header.buttons.login')"
-        color="black"
-        size="xs"
-        class="hidden sm:flex"
-      />
-      <UButton
-        :label="$t('header.buttons.register')"
-        color="gray"
-        size="xs"
-        class="hidden sm:flex"
-        to="/register"
+        icon="i-heroicons-arrow-left-on-rectangle-20-solid"
+        size="sm"
+        variant="ghost"
+        color="red"
+        v-else
+        @click="authStore.logout"
       />
       <LuToggleTheme />
       <UButton
@@ -56,7 +63,6 @@ const isOpen = ref<boolean>(false);
         icon="i-heroicons-bars-3-20-solid"
         color="gray"
         variant="ghost"
-        aria-label="Menu"
         @click="isOpen = !isOpen"
       />
     </div>

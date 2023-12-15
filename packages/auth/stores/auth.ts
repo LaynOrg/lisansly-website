@@ -19,6 +19,15 @@ export const useAuthStore = defineStore({
       }
       this.session = res;
       navigateTo("/");
+    },
+    logout(): void {
+      this.session = {};
+      navigateTo("/login");
+    }
+  },
+  getters:{
+    isAuthenticated(): boolean {
+        return !!this.session.accessToken;
     }
   },
   persist: {
