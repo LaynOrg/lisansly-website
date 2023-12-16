@@ -15,3 +15,9 @@ export type LoginRequest = {
   email: string;
   password: string;
 };
+
+export type UpdateInfosRequest = {
+  name?: string;
+  email?: string;
+  accessToken: string;
+};

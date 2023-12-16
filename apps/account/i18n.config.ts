@@ -54,6 +54,11 @@ export default defineI18nConfig(() => ({
         button: "Giriş Yap",
         401: "Yanlış e-posta adresi veya şifre",
       },
+      updateInfos: {
+        200: "Bilgileriniz başarıyla güncellendi",
+        409: "Bu e-posta adresi zaten kullanılıyor",
+        button: "Bilgileri Güncelle",
+      },
       500: "Bir şeyler ters gitti. Lütfen daha sonra tekrar deneyin.",
     },
     en: {
@@ -107,6 +112,11 @@ export default defineI18nConfig(() => ({
         },
         button: "Login",
         401: "Incorrect email address or password",
+      },
+      updateInfos: {
+        200: "Your infos have been successfully updated",
+        409: "This email address is already in use",
+        button: "Update Infos",
       },
       500: "Something went wrong. Please try again later.",
     },

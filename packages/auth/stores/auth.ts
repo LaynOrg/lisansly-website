@@ -1,4 +1,4 @@
-import type { Session } from "../types";
+import type { Session, User } from "../types";
 import { defineStore } from "pinia";
 
 export const useAuthStore = defineStore({
@@ -9,14 +9,14 @@ export const useAuthStore = defineStore({
     };
   },
   actions: {
-    authenticate(session: Session): void {
+    authenticate(session: Session, redirect = true): void {
       this.session = session;
-      navigateTo("/");
+      redirect && navigateTo("/");
     },
     logout(): void {
       this.session = {} as Session;
       navigateTo("/login");
-    }
+    },
   },
   getters: {
     isAuthenticated(): boolean {
@@ -24,7 +24,14 @@ export const useAuthStore = defineStore({
         const accessToken = this.session?.tokens?.accessToken;
         return accessToken ? true : false;
       }
-    }
+    },
+    getUser(): User {
+      return this.session.user;
+    },
+    getAccessToken(): string {
+      const accessToken = this.session?.tokens?.accessToken;
+      return accessToken;
+    },
   },
   persist: {
     storage: persistedState.localStorage,
