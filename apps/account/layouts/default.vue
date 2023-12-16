@@ -6,7 +6,7 @@ useSeoMeta({
 
 <template>
   <Header />
-  <UContainer :ui="{ constrained: 'max-w-xl mt-10' }">
+  <UContainer :ui="{ constrained: 'max-w-xl mt-8' }">
     <NuxtPage />
   </UContainer>
   <UNotifications />
