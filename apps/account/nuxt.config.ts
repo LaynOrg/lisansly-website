@@ -17,6 +17,7 @@ export default defineNuxtConfig({
     public: {
       logoUrl: process.env.LOGO_URL,
       apiUrl: process.env.API_URL,
+      webUrl: process.env.WEB_URL,
     },
   },
 });

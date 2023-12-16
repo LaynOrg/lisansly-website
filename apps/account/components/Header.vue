@@ -2,13 +2,21 @@
 import type { LinkProps } from "ui/types";
 import { storeToRefs } from "pinia";
 
+const isOpen = ref<boolean>(false);
+const authStore = useAuthStore();
+const { isAuthenticated } = storeToRefs(authStore);
+const config=useRuntimeConfig();
+
+const isAuth = computed(() => isAuthenticated.value);
+
+
 const navigations: LinkProps[] = [
   {
-    href: "/",
+    href: config.public.webUrl,
     label: "header.links.0",
   },
   {
-    href: "/settings",
+    href: "/",
     label: "header.links.1",
   },
   {
@@ -16,12 +24,6 @@ const navigations: LinkProps[] = [
     label: "header.links.2",
   },
 ];
-
-const isOpen = ref<boolean>(false);
-const authStore = useAuthStore();
-const { isAuthenticated } = storeToRefs(authStore);
-
-const isAuth = computed(() => isAuthenticated.value);
 </script>
 
 <template>
