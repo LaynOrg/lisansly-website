@@ -5,10 +5,9 @@ import { storeToRefs } from "pinia";
 const isOpen = ref<boolean>(false);
 const authStore = useAuthStore();
 const { isAuthenticated } = storeToRefs(authStore);
-const config=useRuntimeConfig();
+const config = useRuntimeConfig();
 
 const isAuth = computed(() => isAuthenticated.value);
-
 
 const navigations: LinkProps[] = [
   {
@@ -27,55 +26,58 @@ const navigations: LinkProps[] = [
 </script>
 
 <template>
-  <UCard
-    class="gradient-card rounded-t-none"
-    :ui="{ body: { base: 'flex justify-between px-6 py-5', padding: '' } }"
-  >
-    <div class="flex gap-3 items-center">
-      <LuLogo class="mr-2" />
-      <UButton
-        v-for="{ href, label } in navigations"
-        :to="href"
-        variant="ghost"
-        color="gray"
-        class="hidden sm:flex"
-      >
-        {{ $t(label) }}
-      </UButton>
-    </div>
-    <div class="flex gap-3 items-center">
-      <div class="hidden sm:flex gap-3" v-show="!isAuth">
+  <UContainer :ui="{ constrained: 'max-w-6xl' }">
+    <UCard
+      class="gradient-card rounded-t-none"
+      :ui="{ body: { base: 'flex justify-between px-6 py-5', padding: '' } }"
+    >
+      <div class="flex gap-3 items-center">
+        <LuLogo class="mr-2" />
         <UButton
-          :label="$t('header.buttons.login')"
-          color="black"
-          size="xs"
-          to="/login"
-        />
-        <UButton
-          :label="$t('header.buttons.register')"
+          v-for="{ href, label } in navigations"
+          :to="href"
+          variant="ghost"
           color="gray"
-          size="xs"
-          to="/register"
+          class="hidden sm:flex"
+        >
+          {{ $t(label) }}
+        </UButton>
+      </div>
+      <div class="flex gap-3 items-center">
+        <div class="hidden sm:flex gap-3" v-show="!isAuth">
+          <UButton
+            :label="$t('header.buttons.login')"
+            color="black"
+            size="xs"
+            to="/login"
+          />
+          <UButton
+            :label="$t('header.buttons.register')"
+            color="gray"
+            size="xs"
+            to="/register"
+          />
+        </div>
+        <UButton
+          icon="i-heroicons-arrow-left-on-rectangle-20-solid"
+          size="sm"
+          variant="ghost"
+          color="red"
+          v-show="isAuth"
+          @click="authStore.logout"
+        />
+        <LuToggleTheme />
+        <UButton
+          class="sm:hidden"
+          icon="i-heroicons-bars-3-20-solid"
+          color="gray"
+          variant="ghost"
+          @click="isOpen = !isOpen"
         />
       </div>
-      <UButton
-        icon="i-heroicons-arrow-left-on-rectangle-20-solid"
-        size="sm"
-        variant="ghost"
-        color="red"
-        v-show="isAuth"
-        @click="authStore.logout"
-      />
-      <LuToggleTheme />
-      <UButton
-        class="sm:hidden"
-        icon="i-heroicons-bars-3-20-solid"
-        color="gray"
-        variant="ghost"
-        @click="isOpen = !isOpen"
-      />
-    </div>
-  </UCard>
+    </UCard>
+  </UContainer>
+
   <USlideover v-model="isOpen">
     <UCard
       class="flex flex-col flex-1"
