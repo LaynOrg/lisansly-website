@@ -19,7 +19,9 @@ const navigations: LinkProps[] = [
 
 const isOpen = ref<boolean>(false);
 const authStore = useAuthStore();
-const { isAuthenticated, session } = storeToRefs(authStore);
+const { isAuthenticated } = storeToRefs(authStore);
+
+const isAuth = computed(() => isAuthenticated.value);
 </script>
 
 <template>
@@ -40,7 +42,7 @@ const { isAuthenticated, session } = storeToRefs(authStore);
       </UButton>
     </div>
     <div class="flex gap-3 items-center">
-      <div class="hidden sm:flex gap-3" v-if="!isAuthenticated">
+      <div class="hidden sm:flex gap-3" v-show="!isAuth">
         <UButton
           :label="$t('header.buttons.login')"
           color="black"
@@ -59,7 +61,7 @@ const { isAuthenticated, session } = storeToRefs(authStore);
         size="sm"
         variant="ghost"
         color="red"
-        v-else
+        v-show="isAuth"
         @click="authStore.logout"
       />
       <LuToggleTheme />

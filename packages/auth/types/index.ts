@@ -3,19 +3,12 @@ export type User = {
     email: string;
 }
 
-export type Session = {
-    user: User;
+export type Tokens = {
     accessToken: string;
     refreshToken: string;
 }
 
-export type RegisterRequest = {
-    name: string;
-    email: string;
-    password: string;
-}
-
-export type LoginRequest = {
-    email: string;
-    password: string;
+export type Session = {
+    user: User;
+    tokens: Tokens;
 }

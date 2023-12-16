@@ -1,6 +1,4 @@
-import type { RegisterRequest, Session, LoginRequest } from "../types";
-import ResponseError from "../errors/response";
-import AuthClient from "../clients/auth";
+import type { Session } from "../types";
 import { defineStore } from "pinia";
 
 export const useAuthStore = defineStore({
@@ -11,32 +9,21 @@ export const useAuthStore = defineStore({
     };
   },
   actions: {
-    async register({ email, name, password }: RegisterRequest): Promise<ResponseError | void> {
-      const client = new AuthClient();
-      const res = await client.register({ email, name, password });
-      if (res instanceof ResponseError) {
-        return res;
-      }
-      this.session = res;
-      navigateTo("/");
-    },
-    async login({ email, password }: LoginRequest): Promise<ResponseError | void> {
-      const client = new AuthClient();
-      const res = await client.login({ email, password });
-      if (res instanceof ResponseError) {
-        return res;
-      }
-      this.session = res;
+    authenticate(session: Session): void {
+      this.session = session;
       navigateTo("/");
     },
     logout(): void {
-      this.session = {};
+      this.session = {} as Session;
       navigateTo("/login");
     }
   },
-  getters:{
+  getters: {
     isAuthenticated(): boolean {
-        return !!this.session.accessToken;
+      if (process.client) {
+        const accessToken = this.session?.tokens?.accessToken;
+        return accessToken ? true : false;
+      }
     }
   },
   persist: {

@@ -26,7 +26,7 @@ class RegisterValidation implements IValidation {
         : null;
   }
 
-  validate({
+  public validate({
     name,
     email,
     password,

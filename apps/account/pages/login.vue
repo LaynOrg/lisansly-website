@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import type { FormError, FormSubmitEvent } from "#ui/types";
 import LoginValidation from "~/validations/login";
-import ResponseError from "auth/errors/response";
+import AuthClient from "~/clients/auth";
 
 const validation = new LoginValidation();
-const { login } = useAuthStore();
+const { authenticate } = useAuthStore();
 const loading = ref<boolean>(false);
+const client = new AuthClient();
 const toast = useToast();
 const { t } = useI18n();
 
@@ -24,17 +25,19 @@ const validate = (values: typeof state): FormError[] => {
 
 async function onSubmit(event: FormSubmitEvent<any>) {
   loading.value = true;
-  const res = await login({
+  const res = await client.login({
     email: event.data.email,
     password: event.data.password,
   });
   loading.value = false;
-  if (res instanceof ResponseError) {
+  if (isNuxtError(res)) {
     toast.add({
       color: "red",
       title: t(res.message),
     });
+    return;
   }
+  authenticate(res);
 }
 </script>
 

@@ -14,7 +14,7 @@ class LoginValidation implements IValidation {
       : null;
   }
 
-  validate({ email, password }: ValidationFields): FormError<string>[] {
+  public validate({ email, password }: ValidationFields): FormError<string>[] {
     const errors: FormError[] = [
       this.email(email),
       this.password(password),
