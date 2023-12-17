@@ -19,8 +19,12 @@ const navigations: LinkProps[] = [
     label: "header.links.1",
   },
   {
-    href: "/plan",
+    href: "/update-password",
     label: "header.links.2",
+  },
+  {
+    href: "/plan",
+    label: "header.links.3",
   },
 ];
 </script>

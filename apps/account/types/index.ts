@@ -21,3 +21,8 @@ export type UpdateInfosRequest = {
   email?: string;
   accessToken: string;
 };
+
+export type UpdatePasswordRequest = {
+  password: string;
+  accessToken: string;
+};

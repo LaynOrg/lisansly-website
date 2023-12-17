@@ -4,7 +4,7 @@ export default defineI18nConfig(() => ({
   messages: {
     tr: {
       header: {
-        links: ["Anasayfa", "Ayarlar", "Plan"],
+        links: ["Anasayfa", "Bilgiler", "Şifre Değiştir", "Plan"],
         buttons: {
           login: "Giriş Yap",
           register: "Kayıt Ol",
@@ -59,11 +59,15 @@ export default defineI18nConfig(() => ({
         409: "Bu e-posta adresi zaten kullanılıyor",
         button: "Bilgileri Güncelle",
       },
+      updatePassword: {
+        200: "Şifreniz başarıyla güncellendi",
+        button: "Şifreyi Güncelle",
+      },
       500: "Bir şeyler ters gitti. Lütfen daha sonra tekrar deneyin.",
     },
     en: {
       header: {
-        links: ["Home", "Settings", "Plan"],
+        links: ["Home", "Infos", "Change Password", "Plan"],
         buttons: {
           login: "Login",
           register: "Register",
@@ -117,6 +121,10 @@ export default defineI18nConfig(() => ({
         200: "Your infos have been successfully updated",
         409: "This email address is already in use",
         button: "Update Infos",
+      },
+      updatePassword: {
+        200: "Your password has been successfully updated",
+        button: "Update Password",
       },
       500: "Something went wrong. Please try again later.",
     },
