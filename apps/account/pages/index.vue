@@ -12,8 +12,8 @@ const accessToken = getAccessToken;
 const user = getUser;
 
 const state = reactive({
-  name: user.name,
-  email: user.email,
+  name: user?.name,
+  email: user?.email,
 });
 
 const loading = ref<boolean>(false);
