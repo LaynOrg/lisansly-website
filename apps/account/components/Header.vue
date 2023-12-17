@@ -9,24 +9,26 @@ const config = useRuntimeConfig();
 
 const isAuth = computed(() => isAuthenticated.value);
 
-const navigations: LinkProps[] = [
-  {
-    href: config.public.webUrl,
-    label: "header.links.0",
-  },
-  {
-    href: "/",
-    label: "header.links.1",
-  },
-  {
-    href: "/update-password",
-    label: "header.links.2",
-  },
-  {
-    href: "/plan",
-    label: "header.links.3",
-  },
-];
+const navigations: ComputedRef<LinkProps[]> = computed(() => {
+  return [
+    {
+      href: config.public.webUrl,
+      label: "header.links.0",
+    },
+    {
+      href: "/",
+      label: "header.links.1",
+    },
+    {
+      href: "/update-password",
+      label: "header.links.2",
+    },
+    {
+      href: "/plan",
+      label: "header.links.3",
+    },
+  ].filter((item) => isAuth.value || item.href === config.public.webUrl);
+});
 </script>
 
 <template>
