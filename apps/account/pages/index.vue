@@ -28,7 +28,7 @@ const validate = (values: typeof state): FormError[] => {
   return errors;
 };
 
-async function onSubmit(event: FormSubmitEvent<any>) {
+async function onSubmit(event: FormSubmitEvent<typeof state>) {
   const name = event.data.name;
   const email = event.data.email;
   if (name === user.name && email === user.email) {

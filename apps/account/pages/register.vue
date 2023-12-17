@@ -25,7 +25,7 @@ const validate = (values: typeof state): FormError[] => {
   return errors;
 };
 
-async function onSubmit(event: FormSubmitEvent<any>) {
+async function onSubmit(event: FormSubmitEvent<typeof state>) {
   loading.value = true;
   const res = await client.register({
     name: event.data.name,
