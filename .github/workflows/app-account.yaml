@@ -1,4 +1,4 @@
-name: Web CI/CD
+name: Account CI/CD
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ on:
     branches:
       - master
     paths:
-      - 'apps/web/**'
+      - 'apps/account/**'
 
 jobs:
 
@@ -22,7 +22,7 @@ jobs:
         run: pnpm install
 
       - name: Linting
-        run: pnpm --filter="./apps/web" lint
+        run: pnpm --filter="./apps/account" lint
 
   deploy-to-dev:
     needs:
@@ -37,7 +37,7 @@ jobs:
         run: pnpm install
 
       - name: Build
-        run: pnpm --filter="./apps/web" build
+        run: pnpm --filter="./apps/account" build
         env:
           NITRO_PRESET: cloudflare
 
@@ -46,8 +46,8 @@ jobs:
 
       - name: Deploy To Development Environment
         run: |
-          cd apps/web
-          wrangler deploy --name=lisansly-dev-website
+          cd apps/account
+          wrangler deploy --name=lisansly-dev-account
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
@@ -64,7 +64,7 @@ jobs:
         run: pnpm install
 
       - name: Build
-        run: pnpm --filter="./apps/web" build
+        run: pnpm --filter="./apps/account" build
         env:
           NITRO_PRESET: cloudflare
 
@@ -73,7 +73,7 @@ jobs:
 
       - name: Deploy To Production Environment
         run: |
-          cd apps/web
-          wrangler deploy --name=lisansly-prod-website
+          cd apps/account
+          wrangler deploy --name=lisansly-prod-account
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

@@ -142,15 +142,7 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0(@pinia/nuxt@0.5.1)(pinia@2.1.7)
 
-  packages/featureFlag: {}
-
   packages/featureFlags:
-    dependencies:
-      firebase:
-        specifier: ^10.7.1
-        version: 10.7.1
-
-  packages/plugins:
     dependencies:
       firebase:
         specifier: ^10.7.1

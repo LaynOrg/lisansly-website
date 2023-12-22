@@ -11,3 +11,6 @@ on:
 jobs:
   call-app-web-workflow:
     uses: ./.github/workflows/app-web.yaml
+
+  call-app-account-workflow:
+    uses: ./.github/workflows/app-account.yaml
