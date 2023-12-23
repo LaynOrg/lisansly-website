@@ -7,7 +7,6 @@ export default defineNuxtConfig({
     "@nuxt/ui",
     "@nuxtjs/i18n",
     "@nuxtjs/google-fonts",
-    "@nuxtjs/eslint-module",
     "@pinia/nuxt",
     "@pinia-plugin-persistedstate/nuxt",
   ],
