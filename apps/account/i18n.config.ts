@@ -13,22 +13,30 @@ export default defineI18nConfig(() => ({
       name: {
         label: "Adınız",
         placeholder: "Adınızı girin",
-        error: "Ad alanı zorunludur",
+        validation: {
+          required:
+          "Ad alanı zorunludur"},
       },
       email: {
         label: "E-posta Adresiniz",
         placeholder: "E-posta adresinizi girin",
-        error: "Geçersiz e-posta adresi",
+        validation: {
+          format: "Geçersiz e-posta adresi",
+          required: "E-posta alanı zorunludur",
+        },
       },
       password: {
         label: "Şifreniz",
         placeholder: "Şifrenizi girin",
-        error: "Şifre en az 10 karakter olmalıdır",
+        validation: {
+          required: "Şifre alanı zorunludur",
+          minLength: "Şifre en az 10 karakter olmalıdır",
+        }
       },
       confirmPassword: {
         label: "Şifrenizi Tekrar Girin",
         placeholder: "Şifrenizi tekrar girin",
-        error: {
+        validation: {
           match: "Şifreler eşleşmiyor",
           required: "Tekrar Şifre alanı zorunludur",
         },
@@ -76,22 +84,30 @@ export default defineI18nConfig(() => ({
       name: {
         label: "Name",
         placeholder: "Enter your name",
-        error: "Name is required",
+        validation: {
+          required: "Name is required",
+        },
       },
       email: {
         label: "Email Address",
         placeholder: "Enter your email address",
-        error: "Invalid email address",
+        validation: {
+          format: "Invalid email address",
+          required: "Email is required",
+        },
       },
       password: {
         label: "Password",
         placeholder: "Enter your password",
-        error: "Password must be at least 10 characters",
+        validation: {
+          required: "Password is required",
+          minLength: "Password must be at least 10 characters long",
+        },
       },
       confirmPassword: {
         label: "Confirm Password",
         placeholder: "Confirm your password",
-        error: {
+        validation: {
           match: "Passwords do not match",
           required: "Confirm Password is required",
         },

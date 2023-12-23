@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import UpdateInfosValidation from "~/validations/updateInfos";
-import type { FormError, FormSubmitEvent } from "#ui/types";
+import type { FormSubmitEvent } from "#ui/types";
 import UserClient from "~/clients/user";
+import { z } from "zod";
 
 const { getUser, authenticate, getAccessToken } = useAuthStore();
-const validation = new UpdateInfosValidation();
+const loading = ref<boolean>(false);
 const client = new UserClient();
 const toast = useToast();
+const { t } = useI18n();
 
 const accessToken = getAccessToken;
 const user = getUser;
@@ -16,19 +17,14 @@ const state = reactive({
   email: user?.email,
 });
 
-const loading = ref<boolean>(false);
+const schema = z.object({
+  name: z.string().min(1, t("name.validation.required")),
+  email: z.string().min(1,t("email.validation.required")).email(t("email.validation.format")),
+});
 
-const { t } = useI18n();
+type Schema = z.output<typeof schema>;
 
-const validate = (values: typeof state): FormError[] => {
-  const errors = validation.validate(values).map((error) => ({
-    path: error.path,
-    message: t(error.message),
-  }));
-  return errors;
-};
-
-async function onSubmit(event: FormSubmitEvent<typeof state>) {
+async function onSubmit(event: FormSubmitEvent<Schema>) {
   const name = event.data.name;
   const email = event.data.email;
   if (name === user.name && email === user.email) {
@@ -57,12 +53,7 @@ async function onSubmit(event: FormSubmitEvent<typeof state>) {
 </script>
 
 <template>
-  <UForm
-    :validate="validate"
-    :state="state"
-    class="space-y-3"
-    @submit="onSubmit"
-  >
+  <UForm :schema="schema" :state="state" class="space-y-3" @submit="onSubmit">
     <UFormGroup :label="t('name.label')" size="xl" name="name">
       <UInput :placeholder="t('name.placeholder')" v-model="state.name" />
     </UFormGroup>

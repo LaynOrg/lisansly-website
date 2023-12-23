@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import UpdatePasswordValidation from "~/validations/updatePassword";
-import type { FormError, FormSubmitEvent } from "#ui/types";
+import type {  FormSubmitEvent } from "#ui/types";
 import UserClient from "~/clients/user";
+import { z } from "zod";
 
 const { authenticate, getAccessToken } = useAuthStore();
-const validation = new UpdatePasswordValidation();
+const loading = ref<boolean>(false);
 const client = new UserClient();
 const toast = useToast();
+const { t } = useI18n();
 
 const accessToken = getAccessToken;
 
@@ -15,19 +16,21 @@ const state = reactive({
   confirmPassword: "",
 });
 
-const loading = ref<boolean>(false);
+const schema = z.object({
+  password: z
+    .string()
+    .min(10, t("password.validation.required")),
+  confirmPassword: z
+    .string()
+    .min(1, t("confirmPassword.validation.required"))
+    .refine((data) => data === state.password, {
+      message: t("confirmPassword.validation.match"),
+    }),
+});
 
-const { t } = useI18n();
+type Schema = z.output<typeof schema>;
 
-const validate = (values: typeof state): FormError[] => {
-  const errors = validation.validate(values).map((error) => ({
-    path: error.path,
-    message: t(error.message),
-  }));
-  return errors;
-};
-
-async function onSubmit(event: FormSubmitEvent<typeof state>) {
+async function onSubmit(event: FormSubmitEvent<Schema>) {
   loading.value = true;
   const res = await client.updatePassword({
     password: event.data.password,
@@ -51,7 +54,7 @@ async function onSubmit(event: FormSubmitEvent<typeof state>) {
 
 <template>
   <UForm
-    :validate="validate"
+    :schema="schema"
     :state="state"
     class="space-y-3"
     @submit="onSubmit"

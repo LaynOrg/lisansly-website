@@ -1,29 +1,32 @@
 <script setup lang="ts">
-import type { FormError, FormSubmitEvent } from "#ui/types";
-import LoginValidation from "~/validations/login";
+import type { FormSubmitEvent } from "#ui/types";
 import AuthClient from "~/clients/auth";
+import { z } from "zod";
 
-const validation = new LoginValidation();
 const { authenticate } = useAuthStore();
 const loading = ref<boolean>(false);
 const client = new AuthClient();
 const toast = useToast();
 const { t } = useI18n();
 
+const schema = z.object({
+  email: z.string()
+  .min(1, t("email.validation.required"))
+  .email(t("email.validation.format")),
+  password: z
+    .string()
+    .min(1, t("password.validation.required"))
+});
+
+type Schema = z.output<typeof schema>;
+
 const state = reactive({
   email: "",
   password: "",
 });
 
-const validate = (values: typeof state): FormError[] => {
-  const errors = validation.validate(values).map((error) => ({
-    path: error.path,
-    message: t(error.message),
-  }));
-  return errors;
-};
 
-async function onSubmit(event: FormSubmitEvent<typeof state>) {
+async function onSubmit(event: FormSubmitEvent<Schema>) {
   loading.value = true;
   const res = await client.login({
     email: event.data.email,
@@ -70,7 +73,7 @@ async function onSubmit(event: FormSubmitEvent<typeof state>) {
     :ui="{ label: 'text-lg', border: { size: { horizontal: 'border-t-2' } } }"
   />
   <UForm
-    :validate="validate"
+    :schema="schema"
     :state="state"
     class="space-y-3"
     @submit="onSubmit"
