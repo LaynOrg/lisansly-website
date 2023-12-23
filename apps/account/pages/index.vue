@@ -19,7 +19,10 @@ const state = reactive({
 
 const schema = z.object({
   name: z.string().min(1, t("name.validation.required")),
-  email: z.string().min(1,t("email.validation.required")).email(t("email.validation.format")),
+  email: z
+    .string()
+    .min(1, t("email.validation.required"))
+    .email(t("email.validation.format")),
 });
 
 type Schema = z.output<typeof schema>;

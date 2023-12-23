@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type {  FormSubmitEvent } from "#ui/types";
+import type { FormSubmitEvent } from "#ui/types";
 import UserClient from "~/clients/user";
 import { z } from "zod";
 
@@ -17,9 +17,7 @@ const state = reactive({
 });
 
 const schema = z.object({
-  password: z
-    .string()
-    .min(10, t("password.validation.required")),
+  password: z.string().min(10, t("password.validation.required")),
   confirmPassword: z
     .string()
     .min(1, t("confirmPassword.validation.required"))
@@ -53,12 +51,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 </script>
 
 <template>
-  <UForm
-    :schema="schema"
-    :state="state"
-    class="space-y-3"
-    @submit="onSubmit"
-  >
+  <UForm :schema="schema" :state="state" class="space-y-3" @submit="onSubmit">
     <UFormGroup :label="t('password.label')" size="xl" name="password">
       <UInput
         :placeholder="t('password.placeholder')"

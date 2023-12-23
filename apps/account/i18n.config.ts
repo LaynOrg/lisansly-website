@@ -14,8 +14,8 @@ export default defineI18nConfig(() => ({
         label: "Adınız",
         placeholder: "Adınızı girin",
         validation: {
-          required:
-          "Ad alanı zorunludur"},
+          required: "Ad alanı zorunludur",
+        },
       },
       email: {
         label: "E-posta Adresiniz",
@@ -31,7 +31,7 @@ export default defineI18nConfig(() => ({
         validation: {
           required: "Şifre alanı zorunludur",
           minLength: "Şifre en az 10 karakter olmalıdır",
-        }
+        },
       },
       confirmPassword: {
         label: "Şifrenizi Tekrar Girin",

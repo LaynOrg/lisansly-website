@@ -11,12 +11,11 @@ const { t } = useI18n();
 
 const schema = z.object({
   name: z.string().min(1, t("name.validation.required")),
-  email: z.string()
-  .min(1, t("email.validation.required"))
-  .email(t("email.validation.format")),
-  password: z
+  email: z
     .string()
-    .min(10, t("password.validation.minLength")),
+    .min(1, t("email.validation.required"))
+    .email(t("email.validation.format")),
+  password: z.string().min(10, t("password.validation.minLength")),
   confirmPassword: z
     .string()
     .min(1, t("confirmPassword.validation.required"))
@@ -81,12 +80,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
     class="mt-4 mb-2 text-2xl"
     :ui="{ label: 'text-lg', border: { size: { horizontal: 'border-t-2' } } }"
   />
-  <UForm
-    :schema="schema"
-    :state="state"
-    class="space-y-3"
-    @submit="onSubmit"
-  >
+  <UForm :schema="schema" :state="state" class="space-y-3" @submit="onSubmit">
     <UFormGroup :label="t('name.label')" required size="xl" name="name">
       <UInput :placeholder="t('name.placeholder')" v-model="state.name" />
     </UFormGroup>

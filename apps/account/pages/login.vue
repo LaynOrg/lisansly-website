@@ -10,12 +10,11 @@ const toast = useToast();
 const { t } = useI18n();
 
 const schema = z.object({
-  email: z.string()
-  .min(1, t("email.validation.required"))
-  .email(t("email.validation.format")),
-  password: z
+  email: z
     .string()
-    .min(1, t("password.validation.required"))
+    .min(1, t("email.validation.required"))
+    .email(t("email.validation.format")),
+  password: z.string().min(1, t("password.validation.required")),
 });
 
 type Schema = z.output<typeof schema>;
@@ -24,7 +23,6 @@ const state = reactive({
   email: "",
   password: "",
 });
-
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
   loading.value = true;
@@ -72,12 +70,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
     class="mt-4 mb-2 text-2xl"
     :ui="{ label: 'text-lg', border: { size: { horizontal: 'border-t-2' } } }"
   />
-  <UForm
-    :schema="schema"
-    :state="state"
-    class="space-y-3"
-    @submit="onSubmit"
-  >
+  <UForm :schema="schema" :state="state" class="space-y-3" @submit="onSubmit">
     <UFormGroup :label="t('email.label')" required size="xl" name="email">
       <UInput :placeholder="t('email.placeholder')" v-model="state.email" />
     </UFormGroup>
